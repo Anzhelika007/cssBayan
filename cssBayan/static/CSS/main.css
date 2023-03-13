@@ -1,0 +1,124 @@
+:root {
+    --main-color-bg: #FFF8DC;
+    --font-title: 'Lato', sans-serif;
+    --font-items: 'Rubik', sans-serif;
+    --color-text: #4169E1;
+    --color-text-hover: #000;
+    --border-color: #A9A9A9;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-items);
+    background-color: var(--main-color-bg);
+    color: var(--color-text);
+    font-size: clamp(1.5em, 1.8vw, 0.8em);
+
+}
+
+img {
+    transition: all .3s ease;
+}
+
+input {
+    visibility: hidden;
+    display: none;
+}
+
+h1 {
+    font-family: var(--font-title);
+    font-size: calc(0.8em + 1vw);
+    padding: 2.5rem 0 1.8rem;
+    color: var(--color-text-hover);
+}
+
+h3 {
+    font-size: calc(0.5em + 1vw);
+    word-spacing: clamp(0.2rem, 0.4rem);
+}
+
+.container {
+    width: clamp(18.75rem, 100%, 62.5rem);
+    padding: 0 0.6rem 3.2rem;
+    margin: 0 auto;
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.accordion:hover {
+    color: var(--color-text-hover);
+}
+
+.accordion__items {
+    border-top: 1px var(--border-color) solid;
+    border-bottom: 1px var(--border-color) solid;
+    text-align: center;
+}
+
+.accordion__items-title {
+    display: block;
+    cursor: pointer;
+    padding: 0.6rem 0;
+    transition: background .2s ease-out;
+}
+
+.accordion__items-title-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.accordion__items-title:hover {
+    color: var(--color-text-hover);
+}
+
+.accordion__items-title-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.accordion__items-img {
+    width: 0%;
+    height: 0%;
+    display: block;
+    margin: auto;
+    transition: 1s;
+}
+
+.accordion__items:hover .accordion__items-img,
+.accordion__items-input:checked~.accordion__items-title>.accordion__items-img {
+    width: clamp(5rem, 50vw, 50%);
+    padding: 0.6rem 0;
+    display: block;
+}
+
+.accordion__items:hover .accordion__items-title-icon,
+.accordion__items-input:checked~.accordion__items-title>.accordion__items-title-icon {
+    transform: rotate(180deg);
+}
+
+.accordion__items-title:active .accordion__items-title-icon {
+    opacity: 0.5;
+}
+
+@media (hover: hover) {
+
+    /* when hover is supported */
+    .accordion__items-title-icon {
+        opacity: 0.33;
+    }
+}
