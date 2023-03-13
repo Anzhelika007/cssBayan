@@ -12,15 +12,20 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-items);
     background-color: var(--main-color-bg);
     color: var(--color-text);
     font-size: clamp(24px, 1.8vw, 12px);
+
 }
 
 img {
-    transition: all .6s ease;
+    transition: all .3s ease;
 }
 
 input {
@@ -40,6 +45,8 @@ h1 {
     padding: 0 10px;
     margin: 0 auto;
     color: var(--color-text);
+    display: flex;
+    flex-direction: column;
 }
 
 .accordion {
@@ -61,30 +68,43 @@ h1 {
     display: block;
     cursor: pointer;
     padding: 10px 0;
-    text-align: left;
     transition: background .2s ease-out;
+}
+
+.accordion__items-title-icon {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 .accordion__items-title:hover {
     color: var(--color-text-hover);
 }
 
+.accordion__items-title-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
 .accordion__items-img {
-    display: none;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.accordion__items-img>img {
-    width: clamp(300px, 50%, 300px);
-}
-
-.accordion__items-input:checked+.accordion__items-img,
-.accordion__items-input:hover+.accordion__items-img {
+    width: 0%;
+    height: 0%;
     display: block;
-    transition: background .2s ease-out;
+    margin: auto;
+    transition: 1s;
 }
 
-.accordion__items-input:checked .accordion__items {
-    color: pink;
+.accordion__items:hover .accordion__items-img,
+.accordion__items-input:checked~.accordion__items-title>.accordion__items-img {
+    width: clamp(5rem, 50vw, 100%);
+    padding: 10px 0;
+}
+
+.accordion__items:hover .accordion__items-title-icon,
+.accordion__items-input:checked~.accordion__items-title>.accordion__items-title-icon {
+    transform: rotate(180deg);
+}
+
+.accordion__items-input:checked+.accordion__items-img {
+    display: block;
 }
