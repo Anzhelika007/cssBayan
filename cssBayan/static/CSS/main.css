@@ -104,10 +104,21 @@ h3 {
     width: clamp(5rem, 50vw, 50%);
     padding: 0.6rem 0;
     display: block;
-    opacity: 1;
 }
 
 .accordion__items:hover .accordion__items-title-icon,
 .accordion__items-input:checked~.accordion__items-title>.accordion__items-title-icon {
     transform: rotate(180deg);
+}
+
+.accordion__items-title:active .accordion__items-title-icon {
+    opacity: 0.5;
+}
+
+@media (hover: hover) {
+
+    /* when hover is supported */
+    .accordion__items-title-icon {
+        opacity: 0.33;
+    }
 }
