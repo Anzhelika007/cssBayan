@@ -20,7 +20,7 @@ body {
     font-family: var(--font-items);
     background-color: var(--main-color-bg);
     color: var(--color-text);
-    font-size: clamp(24px, 1.8vw, 12px);
+    font-size: clamp(1.5em, 1.8vw, 0.8em);
 
 }
 
@@ -35,14 +35,19 @@ input {
 
 h1 {
     font-family: var(--font-title);
-    font-size: calc(0.5em + 1vw);
-    padding: 40px 0 30px;
+    font-size: calc(0.8em + 1vw);
+    padding: 2.5rem 0 1.8rem;
     color: var(--color-text-hover);
 }
 
+h3 {
+    font-size: calc(0.5em + 1vw);
+    word-spacing: clamp(0.2rem, 0.4rem);
+}
+
 .container {
-    width: clamp(300px, 100%, 1000px);
-    padding: 0 10px;
+    width: clamp(18.75rem, 100%, 62.5rem);
+    padding: 0 0.6rem 3.2rem;
     margin: 0 auto;
     color: var(--color-text);
     display: flex;
@@ -67,7 +72,7 @@ h1 {
 .accordion__items-title {
     display: block;
     cursor: pointer;
-    padding: 10px 0;
+    padding: 0.6rem 0;
     transition: background .2s ease-out;
 }
 
@@ -96,15 +101,13 @@ h1 {
 
 .accordion__items:hover .accordion__items-img,
 .accordion__items-input:checked~.accordion__items-title>.accordion__items-img {
-    width: clamp(5rem, 50vw, 100%);
-    padding: 10px 0;
+    width: clamp(5rem, 50vw, 50%);
+    padding: 0.6rem 0;
+    display: block;
+    opacity: 1;
 }
 
 .accordion__items:hover .accordion__items-title-icon,
 .accordion__items-input:checked~.accordion__items-title>.accordion__items-title-icon {
     transform: rotate(180deg);
-}
-
-.accordion__items-input:checked+.accordion__items-img {
-    display: block;
 }
